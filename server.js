@@ -29,14 +29,14 @@ app.get('/iss-now', (req, res) => {
 })
 
 app.get('/timezone', (req, res) => {
-	axios.get("https://api.geonames.org/timezoneJSON", { params: req.query })
+	axios.get("http://api.geonames.org/timezoneJSON", { params: req.query })
 		.then(results => {
 			res.json(results.data)
 		})
 })
 
 app.get('/ocean', (req, res) => {
-	axios.get("https://api.geonames.org/oceanJSON", { params: req.query })
+	axios.get("http://api.geonames.org/oceanJSON", { params: req.query })
 		.then(results => {
 			res.json(results.data)
 		})
