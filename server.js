@@ -21,6 +21,13 @@ app.get('/iss-astros', (req, res) => {
 		})
 })
 
+app.get('/iss-now', (req, res) => {
+	axios.get("https://api.open-notify.org/iss-now.json", { params: req.query })
+		.then(results => {
+			res.json(results.data)
+		})
+})
+
 const server = http.createServer(app)
 
 server.listen(PORT, () => {console.log(`listening on port: ${PORT}`)})
