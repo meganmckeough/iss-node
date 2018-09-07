@@ -28,6 +28,20 @@ app.get('/iss-now', (req, res) => {
 		})
 })
 
+app.get('/timezone', (req, res) => {
+	axios.get("https://api.geonames.org/timezoneJSON", { params: req.query })
+		.then(results => {
+			res.json(results.data)
+		})
+})
+
+app.get('/ocean', (req, res) => {
+	axios.get("https://api.geonames.org/oceanJSON", { params: req.query })
+		.then(results => {
+			res.json(results.data)
+		})
+})
+
 const server = http.createServer(app)
 
 server.listen(PORT, () => {console.log(`listening on port: ${PORT}`)})
